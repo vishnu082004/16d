@@ -1,0 +1,24 @@
+# Apache / Hostinger. Pages are pre-rendered at build time (scripts/prerender.mjs):
+#   /                     -> index.html
+#   /about, /insights/x   -> _pages/about.html, _pages/insights/x.html
+#   anything else         -> spa.html (the app shows "Page not found")
+ErrorDocument 404 /spa.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Don't serve the pre-rendered files at their own /_pages/ address (duplicate URLs).
+  RewriteCond %{THE_REQUEST} \s/_pages/ [NC]
+  RewriteRule ^ - [R=404,L]
+
+  # Serve the pre-rendered HTML for a page, with or without a trailing slash.
+  RewriteCond %{DOCUMENT_ROOT}/_pages/$1.html -f
+  RewriteRule ^(.+?)/?$ _pages/$1.html [L]
+
+  # Everything else that isn't a real file or folder goes to the app.
+  RewriteRule ^(index|spa)\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /spa.html [L]
+</IfModule>

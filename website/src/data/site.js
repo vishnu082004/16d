@@ -1,0 +1,51 @@
+// Central settings for the whole site. Fill in the TODO values before going live.
+// Anything left empty ('') is hidden on the site instead of showing a broken link.
+
+export const site = {
+  name: '16Dimensions',
+  tagline: 'Behavioural Training & People Performance Solutions',
+  message: "We Don't Train People. We Transform Behaviour That Drives Performance.",
+  // Shown under the logo in the header and footer.
+  slogan: 'Shaping Leaders, Building Future',
+  domain: 'www.16dimensions.com',
+
+  email: 'kavitha@16dimensions.com',
+  phone: '+91 99620 32007',
+  // WhatsApp number in international format, digits only.
+  whatsapp: '919962032007',
+  location: 'Chennai, Tamil Nadu — training delivered across India',
+
+  // TODO: upload the corporate profile PDF to /public/downloads/ and set the path,
+  // e.g. '/downloads/16Dimensions-Corporate-Profile.pdf'. While empty, the
+  // "Download corporate profile" button opens the contact form instead.
+  corporateProfileUrl: '',
+
+  // Optional: a form service URL (Formspree, Getform, your own API) that accepts
+  // a JSON POST. While empty, the enquiry form opens the visitor's email app.
+  formEndpoint: '',
+
+  // Social profiles, shown in the footer. Empty ones are hidden.
+  social: {
+    linkedin: 'https://www.linkedin.com/company/16dimensions/',
+    instagram: 'https://www.instagram.com/16dimensions_kavitha/',
+    facebook: 'https://www.facebook.com/16Dimensionstraining',
+    youtube: '',
+  },
+
+  // Keep these figures current (blueprint section 07).
+  stats: [
+    { value: '15+', label: 'Years of training experience' },
+    { value: '130,000+', label: 'People trained' },
+    { value: '100+', label: 'Clients' },
+    { value: '3+', label: 'countries' },
+  ],
+};
+
+export function whatsappLink(text = 'Hi 16Dimensions, I would like to enquire about training.') {
+  if (!site.whatsapp) return '';
+  return `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(text)}`;
+}
+
+export function profileLink() {
+  return site.corporateProfileUrl || '/contact?enquiry=profile';
+}
