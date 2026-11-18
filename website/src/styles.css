@@ -263,6 +263,11 @@ a {
   max-width: 1500px;
   gap: clamp(36px, 3vw, 50px);
 }
+@media (min-width: 1500px) {
+  .header__inner {
+    transform: translateX(clamp(0px, calc(50vw - 750px), 190px));
+  }
+}
 .header__logo {
   flex: 0 0 auto;
   text-decoration: none;
