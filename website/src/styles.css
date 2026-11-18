@@ -337,7 +337,7 @@ a {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-start;
-    gap: clamp(18px, 1.4vw, 24px);
+    gap: clamp(20px, 1.5vw, 26px);
   }
   .nav__item {
     position: relative;
