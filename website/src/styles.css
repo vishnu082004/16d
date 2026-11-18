@@ -258,10 +258,10 @@ a {
 .header__inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   height: var(--header-h);
   max-width: 1500px;
-  gap: 28px;
+  gap: clamp(32px, 4vw, 60px);
 }
 .header__logo {
   flex: 0 0 auto;
@@ -322,14 +322,18 @@ a {
   .nav {
     display: flex;
     align-items: center;
-    flex: 0 0 auto;
+    flex: 1 1 auto;
+    min-width: 0;
     flex-wrap: nowrap;
     gap: clamp(12px, 1.4vw, 22px);
   }
   .nav__list {
     display: flex;
-    flex: 0 0 auto;
+    flex: 1 1 auto;
+    min-width: 0;
     flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
     gap: clamp(10px, 1.05vw, 18px);
   }
   .nav__item {
