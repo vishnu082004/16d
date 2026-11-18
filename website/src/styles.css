@@ -263,11 +263,6 @@ a {
   max-width: 1500px;
   gap: clamp(36px, 3vw, 50px);
 }
-@media (min-width: 1500px) {
-  .header__inner {
-    transform: translateX(clamp(0px, calc(50vw - 750px), 190px));
-  }
-}
 .header__logo {
   flex: 0 0 auto;
   text-decoration: none;
@@ -333,7 +328,7 @@ a {
     gap: clamp(20px, 1.5vw, 26px);
   }
   .header__logo {
-    margin-left: clamp(24px, 2.3vw, 44px);
+    margin-left: 0;
   }
   .nav__list {
     display: flex;
@@ -407,6 +402,12 @@ a {
     padding: 0 16px;
     white-space: nowrap;
     font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 1500px) {
+  .header__logo {
+    margin-left: 160px;
   }
 }
 
