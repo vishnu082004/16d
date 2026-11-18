@@ -235,6 +235,21 @@ a {
   font-weight: 700;
   white-space: nowrap;
 }
+.logo-lockup__leader {
+  position: relative;
+  display: inline-block;
+  color: var(--green);
+}
+.logo-lockup__crown {
+  position: absolute;
+  width: 0.88em;
+  height: 0.58em;
+  left: 50%;
+  top: -0.52em;
+  transform: translateX(-50%);
+  overflow: visible;
+  fill: #f3314f;
+}
 @media (max-width: 560px) {
   :root {
     --header-h: 88px;
@@ -246,9 +261,8 @@ a {
     font-size: 0.68rem;
   }
 }
-.footer .logo--full {
-  width: 210px;
-  height: auto;
+.footer .logo {
+  height: 72px;
 }
 
 /* ---------- Header ---------- */

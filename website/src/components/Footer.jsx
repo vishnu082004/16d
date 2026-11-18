@@ -32,7 +32,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer__grid">
         <div className="footer__brand">
-          <Logo full />
+          <Logo />
           <p className="footer__msg">{site.message}</p>
         </div>
 
