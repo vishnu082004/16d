@@ -396,6 +396,7 @@ a {
   .nav__cta {
     min-height: 44px;
     flex: 0 0 auto;
+    margin-left: auto;
     padding: 0 16px;
     white-space: nowrap;
     font-size: 0.9rem;
