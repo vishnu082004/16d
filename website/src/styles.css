@@ -261,7 +261,7 @@ a {
   justify-content: flex-start;
   height: var(--header-h);
   max-width: 1500px;
-  gap: clamp(32px, 4vw, 60px);
+  gap: clamp(36px, 3vw, 50px);
 }
 .header__logo {
   flex: 0 0 auto;
@@ -325,7 +325,7 @@ a {
     flex: 1 1 auto;
     min-width: 0;
     flex-wrap: nowrap;
-    gap: clamp(10px, 0.8vw, 14px);
+    gap: clamp(20px, 1.5vw, 26px);
   }
   .nav__list {
     display: flex;
@@ -334,7 +334,7 @@ a {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-start;
-    gap: clamp(8px, 0.6vw, 11px);
+    gap: clamp(16px, 1.25vw, 22px);
   }
   .nav__item {
     position: relative;
