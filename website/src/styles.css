@@ -228,27 +228,10 @@ a {
   width: max-content;
   line-height: 1;
 }
-.logo-lockup__slogan {
-  margin-top: 6px;
-  color: var(--green);
-  font-size: 0.78rem;
-  font-weight: 700;
-  white-space: nowrap;
-}
-.logo-lockup__leader {
-  position: relative;
-  display: inline-block;
-  color: var(--green);
-}
-.logo-lockup__crown {
-  position: absolute;
-  width: 0.88em;
-  height: 0.58em;
-  left: 50%;
-  top: -0.52em;
-  transform: translateX(-50%);
-  overflow: visible;
-  fill: #f3314f;
+.logo-lockup__tagline {
+  width: 280px;
+  height: auto;
+  margin-top: 3px;
 }
 @media (max-width: 560px) {
   :root {
@@ -257,12 +240,17 @@ a {
   .header .logo {
     height: 52px;
   }
-  .header .logo-lockup__slogan {
-    font-size: 0.68rem;
+  .header .logo-lockup__tagline {
+    width: min(240px, 72vw);
   }
 }
 .footer .logo {
   height: 72px;
+}
+@media (min-width: 901px) {
+  .footer__brand .logo-lockup {
+    transform: translateX(10px);
+  }
 }
 
 /* ---------- Header ---------- */
