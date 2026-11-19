@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import usePageMeta from '../components/usePageMeta.js';
 import Reveal from '../components/Reveal.jsx';
-import { ButtonLink, SectionHead, CTASection, PhotoSlot, SampleBadge } from '../components/Blocks.jsx';
-import { site, profileLink } from '../data/site.js';
+import { ButtonLink, SectionHead, CTASection, PhotoSlot } from '../components/Blocks.jsx';
+import { site } from '../data/site.js';
 import { solutions } from '../data/solutions.js';
 import { industries } from '../data/industries.js';
 import { painPoints, methodology, caseStudies, testimonials, clientLogos, insights } from '../data/content.js';
-import { photos, kavitha, brand, heroes, industryPhotos, solutionPhotos } from '../data/images.js';
+import { photos, kavitha, brand, heroes, homeIndustryPhotos, industryPhotos, solutionPhotos } from '../data/images.js';
 import LogoMarquee from '../components/LogoMarquee.jsx';
 import CountUp from '../components/CountUp.jsx';
 import SolutionIcon from '../components/SolutionIcon.jsx';
@@ -40,7 +40,7 @@ export default function Home() {
             </ul>
             <div className="btn-row">
               <ButtonLink to="/contact">Discuss your training needs</ButtonLink>
-              <ButtonLink to={profileLink()} variant="secondary">Download corporate profile</ButtonLink>
+              <ButtonLink to="/services/frontline-shopfloor-training" variant="secondary">Explore Frontline Training</ButtonLink>
             </div>
             <dl className="hero__stats">
               <div>
@@ -88,6 +88,19 @@ export default function Home() {
           </p>
         </div>
         <LogoMarquee logos={clientLogos} />
+      </section>
+
+      <section className="section frontline-home">
+        <div className="container frontline-home__grid">
+          <div>
+            <p className="eyebrow">Practical training for the people closest to the work</p>
+            <h2>Frontline &amp; Shopfloor Team Training</h2>
+            <p>16Dimensions helps operators, technicians, drivers, retail associates and service teams build the everyday skills their jobs demand. We use activities and role plays based on real workplace situations, from handing over a shift and reporting a problem early to handling a customer complaint or recommending a product. Sessions are delivered in a language your team is comfortable using.</p>
+            <div className="frontline-home__roles"><span>Operators</span><span>Technicians</span><span>Drivers</span><span>Retail Associates</span><span>Cashiers</span><span>Service Crews</span><span>Support Staff</span></div>
+            <ButtonLink to="/services/frontline-shopfloor-training">Explore Frontline Training</ButtonLink>
+          </div>
+          <img src={industryPhotos['retail-qsr'].src} alt={industryPhotos['retail-qsr'].alt} loading="lazy" />
+        </div>
       </section>
 
       {/* 2. When should you call 16Dimensions? */}
@@ -167,7 +180,7 @@ export default function Home() {
             {industries.map((ind, i) => (
               <Reveal key={ind.slug} delay={(i % 3) * 80}>
                 <Link to={`/industries/${ind.slug}`} className="photo-card">
-                  <img src={industryPhotos[ind.slug]?.src} alt="" loading="lazy" decoding="async" />
+                  <img src={homeIndustryPhotos[ind.slug]?.src} alt={homeIndustryPhotos[ind.slug]?.alt || ''} loading="lazy" decoding="async" />
                   <div className="photo-card__body">
                     <h3>{ind.title}</h3>
                     <p>{ind.focus.slice(0, 3).join(' · ')}</p>
@@ -227,7 +240,6 @@ export default function Home() {
                 <article className="case-card">
                   <div className="case-card__top">
                     <span className="badge">{c.industry}</span>
-                    {c.sample && <SampleBadge />}
                   </div>
                   <h3>{c.title}</h3>
                   <p><strong>Challenge:</strong> {c.challenge}</p>
@@ -250,7 +262,6 @@ export default function Home() {
             {testimonials.map((t, i) => (
               <Reveal key={i} delay={i * 80}>
                 <figure className="quote">
-                  {t.sample && <SampleBadge />}
                   <blockquote>{t.quote}</blockquote>
                   <figcaption>
                     <strong>{t.name}</strong>

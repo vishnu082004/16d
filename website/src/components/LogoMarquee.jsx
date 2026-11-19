@@ -2,8 +2,18 @@ import { useEffect, useRef } from 'react';
 
 // Client logos run in two opposite directions, with each logo shown once.
 export default function LogoMarquee({ logos }) {
-  const midpoint = Math.ceil(logos.length / 2);
-  const rows = [logos.slice(0, midpoint), logos.slice(midpoint)];
+  const unique = [...new Map(logos.filter((logo) => logo?.src).map((logo) => [logo.src, logo])).values()];
+  const categories = ['hospitality', 'education', 'manufacturing', 'finance', 'technology', 'retail', 'real-estate', 'other'];
+  const buckets = new Map(categories.map((category) => [category, unique.filter((logo) => (logo.industry || 'other') === category)]));
+  const ordered = [];
+  while ([...buckets.values()].some((bucket) => bucket.length)) {
+    for (const category of categories) {
+      const logo = buckets.get(category).shift();
+      if (logo) ordered.push(logo);
+    }
+  }
+  const midpoint = Math.ceil(ordered.length / 2);
+  const rows = [ordered.slice(0, midpoint), ordered.slice(midpoint)];
   const rowRefs = useRef([]);
   const paused = useRef(false);
 
@@ -65,7 +75,7 @@ export default function LogoMarquee({ logos }) {
         <div className="marquee__row" key={index} ref={(element) => { rowRefs.current[index] = element; }}>
           <ul className="marquee__track">
             {row.map((l) => (
-              <li key={l.src} className={`marquee__item ${['Value Ingredients', 'Pothys', 'Burgerman'].includes(l.name) ? 'marquee__item--large' : ''} ${l.name === 'Value Ingredients' ? 'marquee__item--value' : ''}`}>
+              <li key={l.src} className={`marquee__item ${['Pothys', 'Burgerman'].includes(l.name) ? `marquee__item--${l.name.toLowerCase().replaceAll(' ', '-')}` : ''}`}>
                 <img src={l.src} alt={l.name} title={l.name} loading="lazy" decoding="async" />
               </li>
             ))}

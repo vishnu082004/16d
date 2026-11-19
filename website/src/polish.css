@@ -348,14 +348,21 @@
   }
   .hero__visual {
     min-height: 0;
+    overflow: visible;
   }
-  /* out of flow, so the portrait never makes the hero taller than the copy/viewport */
+  /* Keep the full portrait visible and grounded in the right hero column. */
   .hero__person {
     position: absolute;
-    bottom: 0;
     left: 50%;
+    bottom: 0;
+    top: auto;
+    width: auto;
+    height: 92%;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: bottom center;
     transform: translateX(-50%);
-    height: min(600px, 86%);
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
   }
 }
 
@@ -388,9 +395,13 @@
     max-width: 440px;
     width: 100%;
     margin: 0 auto;
+    overflow: hidden;
   }
   .hero__person {
-    height: 440px;
+    height: 92%;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: bottom center;
   }
   .hero__card--session {
     top: 40px;
@@ -420,7 +431,7 @@
     height: 400px;
   }
   .hero__person {
-    height: 380px;
+    height: 92%;
   }
   .hero__card--session {
     display: none;
@@ -442,6 +453,21 @@
 .trust__title strong {
   color: var(--ink);
 }
+.frontline-home { background:var(--green-soft); }
+.frontline-home__grid { display:grid; grid-template-columns:1.1fr .9fr; align-items:center; gap:48px; }
+.frontline-home__grid h2 { max-width:18ch; }
+.frontline-home__grid p:not(.eyebrow) { color:var(--muted); }
+.frontline-home__grid>img { width:100%; height:390px; object-fit:cover; border-radius:var(--radius); box-shadow:var(--shadow-hover); }
+.frontline-home__roles { display:flex; flex-wrap:wrap; gap:8px; margin:20px 0 26px; }
+.frontline-home__roles span { padding:6px 12px; border:1px solid rgba(149,194,75,.35); border-radius:999px; background:#fff; color:var(--ink); font-size:.9rem; font-weight:600; }
+.frontline-stories__note { display:grid; grid-template-columns:1fr .8fr; gap:30px; align-items:center; margin-top:28px; padding:28px; border:1px solid var(--line); border-radius:var(--radius); background:#fff; box-shadow:var(--shadow); }
+.frontline-stories__note h3 { margin-top:14px; }
+.frontline-stories__note p { color:var(--muted); }
+.frontline-stories__photos { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.frontline-stories__photos img { width:100%; height:145px; border-radius:var(--radius-sm); object-fit:cover; }
+.frontline-stories__photos img:first-child { grid-row:span 2; height:300px; }
+@media(max-width:760px) { .frontline-home__grid { grid-template-columns:1fr; gap:26px; } .frontline-home__grid>img { height:260px; } }
+@media(max-width:760px) { .frontline-stories__note { grid-template-columns:1fr; padding:20px; } .frontline-stories__photos img { height:120px; } .frontline-stories__photos img:first-child { height:250px; } }
 .marquee {
   display: grid;
   gap: 16px;
@@ -478,19 +504,25 @@
   opacity: 1;
   transition: transform 0.3s;
 }
-.marquee__item--large img {
-  transform: scale(1.42);
+.marquee__item--burgerman img {
+  width: 122px;
+  height: 84px;
+  object-fit: contain;
+  transform: scale(1.18);
 }
-.marquee__item--value img {
+.marquee__item--pothys img {
+  width: 122px;
+  height: 84px;
+  object-fit: contain;
   transform: scale(1.2);
 }
 .marquee__item:hover img {
   transform: scale(1.06);
 }
-.marquee__item--large:hover img {
-  transform: scale(1.48);
+.marquee__item--burgerman:hover img {
+  transform: scale(1.24);
 }
-.marquee__item--value:hover img {
+.marquee__item--pothys:hover img {
   transform: scale(1.26);
 }
 /* ---------- Photo cards (industries) ---------- */
@@ -600,10 +632,14 @@
 }
 .page-hero--photo .container {
   position: relative;
+  width: 100%;
+  margin-left: max(calc((100% - 1180px) / 2), 0px);
+  padding-right: 0;
 }
+.page-hero--photo .container > * { max-width: min(560px, 48%); }
 .page-hero--photo h1,
 .page-hero--photo .lead {
-  max-width: 560px;
+  max-width: min(560px, 48%);
 }
 @media (max-width: 860px) {
   /* not enough width for side-by-side: keep the photo as a faint backdrop */
@@ -613,6 +649,10 @@
     -webkit-mask-image: none;
     mask-image: none;
   }
+  .page-hero--photo .container { margin-left: auto; padding-right: 20px; }
+  .page-hero--photo .container > *,
+  .page-hero--photo h1,
+  .page-hero--photo .lead { max-width: 560px; }
 }
 @media (max-width: 700px) {
   .page-hero--photo {

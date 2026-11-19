@@ -39,6 +39,9 @@ export default function Footer() {
         <div>
           <h3 className="footer__h">Training Solutions</h3>
           <ul className="footer__list">
+            <li>
+              <Link to="/services/frontline-shopfloor-training">Frontline &amp; Shopfloor Team Training</Link>
+            </li>
             {solutions.map((s) => (
               <li key={s.slug}>
                 <Link to={s.link || `/training-solutions/${s.slug}`}>{s.title}</Link>

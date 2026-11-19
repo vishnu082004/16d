@@ -142,7 +142,7 @@ export const testimonials = [
 // Client logos — add only where permission / brand policy allows.
 // Files live in /public/images/clients/. The first 12 are shown on the home page.
 export const clientLogos = [
-  ['Shell', 'shell'],
+  ['Shell', 'shell', 'manufacturing'],
   ['DLF', 'dlf'],
   ['Novotel', 'novotel'],
   ['Nidec', 'nidec'],
@@ -167,7 +167,6 @@ export const clientLogos = [
   ['BioRevive', 'biorevive'],
   ['Cookie Man', 'cookie-man'],
   ['Burgerman', 'burgerman'],
-  ['Stella Maris College', 'stella-maris-college'],
   ['Ethiraj College for Women', 'ethiraj-college-for-women'],
   ['IHM Chennai', 'ihm-chennai'],
   ['Madras School of Social Work', 'madras-school-of-social-work'],
@@ -175,21 +174,36 @@ export const clientLogos = [
   ['Anand Institute of Higher Technology', 'anand-institute-of-higher-technology'],
   ['Sriram Engineering College', 'sriram-engineering-college'],
   // TODO: name these two clients (logos without readable names).
-  ['Client institution', 'client-crest'],
-].map(([name, file]) => ({
+].map(([name, file, industry]) => ({
   name,
+  industry: industry || ({
+    novotel: 'hospitality', 'the-park-chennai': 'hospitality', 'grand-chennai-by-grt-hotels': 'hospitality',
+    'the-raintree-hotels': 'hospitality', 'the-residency-towers': 'hospitality', 'heritage-hotels-resorts': 'hospitality',
+    'the-park-bangalore': 'hospitality', greenpark: 'hospitality',
+    'loyola-college': 'education', 'stella-maris-college': 'education', 'ethiraj-college-for-women': 'education',
+    'ihm-chennai': 'education', 'madras-school-of-social-work': 'education', 'peri-institute-of-technology': 'education',
+    'anand-institute-of-higher-technology': 'education', 'sriram-engineering-college': 'education', 'client-crest': 'education',
+    nidec: 'manufacturing', 'usha-fire': 'manufacturing', biorevive: 'manufacturing', shell: 'manufacturing',
+    'royal-sundaram': 'finance', 'repco-home-finance-logo': 'finance',
+    camu: 'technology', keenstack: 'technology',
+    'saravana-stores': 'retail', 'cookie-man': 'retail', burgerman: 'retail', pothys: 'retail',
+    dlf: 'real-estate', baashyaam: 'real-estate', pallavaa: 'real-estate', 'pushkar-properties': 'real-estate',
+    ych: 'other', 'fairways-logistics': 'other', papl: 'other', khivraj: 'other', 'client-emblem': 'other',
+    'wealth-for-wellbeing': 'other', 'value-ingredients': 'other', 'living-room-signature': 'other', 'lks-gold-house': 'other',
+  })[file] || 'other',
   src: file === 'burgerman'
     ? '/images/clients/burgerman-logo.jpg'
     : `/images/clients/${file}.png`,
 })).concat([
   { name: 'Creating Wealth for Wellbeing', src: '/images/clients/wealth-for-wellbeing-emblem.jpg' },
   { name: 'Pallavaa Group', src: '/images/clients/pallavaa-group-logo.jpg' },
-  { name: 'Value Ingredients', src: '/images/clients/value-ingredients-logo.jpg' },
+  { name: 'Value Ingredients', src: '/images/clients/value-ingredients-logo.jpg', industry: 'other' },
   { name: 'The Living Room Signature', src: '/images/clients/living-room-signature-logo.jpg' },
   { name: 'Pushkar Properties', src: '/images/clients/pushkar-properties-logo.jpg' },
   { name: 'LKS Gold House', src: '/images/clients/lks-gold-house-logo.jpg' },
   { name: 'Repco Home Finance', src: '/images/clients/repco-home-finance-logo.jpg' },
   { name: 'Pothys', src: '/images/clients/pothys-logo.jpg' },
+  { name: 'Goldman Sachs', src: '/images/clients/goldman-sachs.png', industry: 'finance' },
 ]);
 
 // Section 10 — Content themes for monthly publishing.

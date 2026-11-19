@@ -14,7 +14,15 @@ const nav = [
       { to: '/about/kavitha-sasi', label: 'About Kavitha Sasi' },
     ],
   },
-  { to: '/training-solutions', label: 'Training Solutions' },
+  { to: '/training-solutions', label: 'Training Solutions', children: [
+    { to: '/training-solutions', label: 'All Training Solutions' },
+    { to: '/services/frontline-shopfloor-training', label: 'Frontline & Shopfloor Team Training' },
+    { to: '/training-solutions/leadership-people-management', label: 'Leadership & People Management' },
+    { to: '/training-solutions/communication-collaboration', label: 'Communication & Collaboration' },
+    { to: '/training-solutions/customer-experience-sales', label: 'Customer Experience & Sales' },
+    { to: '/training-solutions/workplace-effectiveness', label: 'Workplace Effectiveness' },
+    { to: '/posh', label: 'PoSH & Respectful Workplace' },
+  ] },
   { to: '/industries', label: 'Industries' },
   { to: '/posh', label: 'PoSH' },
   { to: '/success-stories', label: 'Success Stories' },
@@ -60,10 +68,8 @@ export default function Header() {
                 {item.children && (
                   <ul className="nav__sub">
                     {item.children.map((c) => (
-                      <li key={c.to}>
-                        <NavLink to={c.to} end className="nav__sublink">
-                          {c.label}
-                        </NavLink>
+                      <li key={c.to || c.label}>
+                        {c.note ? <span className="nav__sublink nav__sublink--note">{c.label}</span> : <NavLink to={c.to} end className="nav__sublink">{c.label}</NavLink>}
                       </li>
                     ))}
                   </ul>

@@ -62,7 +62,7 @@ const industryList = [
       },
     ],
     solutions: ['leadership-people-management', 'communication-collaboration', 'workplace-effectiveness', 'posh-respectful-workplace'],
-    clients: ['Goldman Sachs', 'HCL', 'Shell', 'DLF', 'Cushman & Wakefield', 'Royal Sundaram', 'British Council', 'Repco', 'Camu', 'Keenstack'],
+    clients: ['Goldman Sachs', 'Shell', 'DLF', 'Royal Sundaram', 'Repco', 'Camu', 'Keenstack'],
     article: 'communication-skills-2025',
     faqs: [
       {
@@ -377,12 +377,7 @@ const industryList = [
     ],
     solutions: ['communication-collaboration', 'workplace-effectiveness', 'posh-respectful-workplace'],
     clients: [
-      'IIT Madras',
-      'Anna University',
       'Loyola College',
-      'Stella Maris College',
-      'Maris Stella College',
-      "Women's Christian College",
       'Ethiraj College for Women',
       'Madras School of Social Work',
       'PERI Institute of Technology',

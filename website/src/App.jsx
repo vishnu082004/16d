@@ -18,6 +18,7 @@ import Contact from './pages/Contact.jsx';
 import Privacy from './pages/Privacy.jsx';
 import Terms from './pages/Terms.jsx';
 import NotFound from './pages/NotFound.jsx';
+import FrontlineTraining from './pages/FrontlineTraining.jsx';
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="/about/kavitha-sasi" element={<Founder />} />
           <Route path="/training-solutions" element={<Solutions />} />
           <Route path="/training-solutions/:slug" element={<SolutionDetail />} />
+          <Route path="/services/frontline-shopfloor-training" element={<FrontlineTraining />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/industries/:slug" element={<IndustryDetail />} />
           <Route path="/posh" element={<Posh />} />

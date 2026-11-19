@@ -107,14 +107,6 @@ export function PhotoSlot({ label = 'Training photograph', ratio = '4 / 3', src,
   );
 }
 
-export function SampleBadge() {
-  return (
-    <span className="badge badge--sample" title="Placeholder content — replace before launch">
-      Sample
-    </span>
-  );
-}
-
 export function Checklist({ items }) {
   return (
     <ul className="checklist">

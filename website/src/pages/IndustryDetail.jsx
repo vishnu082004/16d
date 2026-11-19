@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import usePageMeta from '../components/usePageMeta.js';
 import Reveal from '../components/Reveal.jsx';
-import { PageHero, CTASection, ButtonLink, Checklist, PhotoSlot, SampleBadge, SectionHead } from '../components/Blocks.jsx';
+import { PageHero, CTASection, ButtonLink, Checklist, PhotoSlot, SectionHead } from '../components/Blocks.jsx';
 import { getIndustry, industries } from '../data/industries.js';
 import { getSolution } from '../data/solutions.js';
 import { findArticle } from '../data/articles.js';
@@ -140,7 +140,6 @@ export default function IndustryDetail() {
               <article key={c.title} className="case-full">
                 <div className="case-card__top">
                   <h3>{c.title}</h3>
-                  {c.sample && <SampleBadge />}
                 </div>
                 <p><strong>Challenge:</strong> {c.challenge}</p>
                 <p><strong>Approach:</strong> {c.approach}</p>

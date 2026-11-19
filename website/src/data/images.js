@@ -23,10 +23,10 @@ export const photos = {
   heroSession: { src: t(21), alt: 'Kavitha Sasi facilitating a customer-service workshop' },
   aboutTeam: { src: t(23), alt: 'Kavitha Sasi addressing employees during a training session' },
   homeGallery: [
-    { src: t(87), alt: 'Participants in a role-play activity' },
+    { src: t(124), title: 'Police Team Training Programme', alt: 'Kavitha with police personnel after a training programme' },
     { src: t(81), title: 'Hospitality Team Listening Session', alt: 'Hospitality team members listening during a facilitated discussion' },
+    { src: t(56), title: 'National Safety Day Pledge Activity', alt: 'Employees taking a safety pledge during National Safety Day' },
     { src: t(80), title: 'Collaborative Rope Team Building Activity', alt: 'Participants working together in a rope-based team building exercise' },
-    { src: t(56), alt: 'Team activity during a training session' },
     { src: t(32), alt: 'Group discussion in a corporate training room' },
     { src: t(29), alt: 'Leadership session with managers' },
     { src: t(105), alt: 'Frontline hospitality team after a training session' },
@@ -92,6 +92,17 @@ export const industryPhotos = {
   corporate: { src: t(29), alt: 'Corporate leadership training session' },
   manufacturing: { src: t(102), alt: 'Manufacturing team after a 16Dimensions programme' },
   'retail-qsr': { src: t(117), alt: 'Retail and QSR team in a training session' },
+  hospitality: { src: t(105), alt: 'Hotel chefs and staff with Kavitha Sasi' },
+  education: { src: t(45), alt: 'Students at a soft-skills session' },
+  'healthcare-services': { src: t(53), alt: 'Service team training session' },
+};
+
+// Homepage industry cards use their own images to avoid repeating the photos
+// shown on the individual industry pages.
+export const homeIndustryPhotos = {
+  corporate: { src: '/images/training/corporate-workshop-presentation.jpg', alt: 'Trainer presenting to a corporate workshop group' },
+  manufacturing: { src: t(102), alt: 'Manufacturing team after a 16Dimensions programme' },
+  'retail-qsr': { src: t(121), alt: 'Restaurant service team after a training programme' },
   hospitality: { src: t(105), alt: 'Hotel chefs and staff with Kavitha Sasi' },
   education: { src: t(45), alt: 'Students at a soft-skills session' },
   'healthcare-services': { src: t(53), alt: 'Service team training session' },
